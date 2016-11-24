@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="c_sum" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <pubdate>$LastChangedDate: 2016-11-23 11:43:00 +0100$</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>Scilab2Xcos</refname>
+
+    <refpurpose>Rebuild a simulink diagram in Xcos</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>The toolbox is not meant to be called as a function but executed as a script.\nTo run the script simply execute Basis.sce</synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Description</title>
+
+    <para>The script takes a Matlab Simulink SLX file and extracts the diagram data into a Xcos diagram.</para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <para>If you want so see how the script works, use it and select the GQS.slx file</para>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type="vert">
+      <member>Nils Leimbach</member>
+    </simplelist>
+  </refsection>
+</refentry>
