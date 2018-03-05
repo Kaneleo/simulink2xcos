@@ -70,7 +70,7 @@ function [xmlDoc] = slxToXml()
             end
         catch //in case the dos doesn't work, the XML has to be entered manually
             messagebox(['The SLX could not be converted.', 'Please do the following:', '', '1. Duplicate the SLX file and change the file ending to zip.', '2. Extract the contents of the archive with an appropriate tool.', '3. Click OK when done.'], 'Conversion error!', 'error', 'modal');
-            xmlDoc = xmlRead(uigetfile('*', part(slxFile, 1:n), 'Please select the file \simulink\blockdiagram.xml", %f));
+            xmlDoc = xmlRead(uigetfile('*', part(slxFile, 1:n), "Please select the file \simulink\blockdiagram.xml", %f));
             flag = 1;
         end
         
@@ -81,7 +81,7 @@ function [xmlDoc] = slxToXml()
             catch //read does'nt work, input manually
                 messagebox(['The XML file could not be read', 'Please select the file \simulink\blockdiagram.xml manually.'], 'XML file could not be read', 'warning', 'modal');
                 try
-                    xmlDoc = xmlRead(uigetfile('*', part(slxFile, 1:n), 'Please select the file \simulink\blockdiagram.xml", %f));
+                    xmlDoc = xmlRead(uigetfile('*', part(slxFile, 1:n), "Please select the file \simulink\blockdiagram.xml", %f));
                 catch
                     messagebox('ERROR!', 'ERROR', 'error', 'modal');
                     abort
