@@ -35,7 +35,12 @@ getd(filepath1);
 loadXcosLibs();
 
 global xmlDoc;
-xmlDoc = slxToXml(); //loads XML file
+
+if getos() == "Windows" then
+    xmlDoc = slxToXml_win(); //loads XML file
+else
+    xmlDoc = slxToXml_unix(); //loads XML file
+end
 
 btn = messagebox(['If your simulink diagram uses external parameters that are defined in one or multiple M file(s)', 'you will have to load these prior to continuing.', 'Not loading these files will likely produce an error breaking the tool.', 'Do you have M file(s) that need to be loaded?'], 'Load external parameters', 'scilab', ['Yes', 'No'], 'modal');
 if btn == 1

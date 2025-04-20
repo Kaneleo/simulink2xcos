@@ -18,7 +18,13 @@ function [bn,path]=configFileExist()
     path=xmlDoc.url;
     fileStr=strrchr(path,'/');
     slashPos=strindex(path,fileStr);
-    path=part(path,9:slashPos-1);
+    
+    if getos() == "Windows" then
+        path=part(path,9:slashPos-1);
+    else
+        path=part(path,1:slashPos-1);
+    end
+    
     files=dir(path);
     bn=isPart(files(2),'configSet0.xml');
     
