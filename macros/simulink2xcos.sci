@@ -27,7 +27,9 @@ function simulink2xcos()
     clockReminder = 0;
 
     global filepath;
-    filepath = get_absolute_file_path('simulink2xcos.sce'); //to load all functions, the directory has to be determined
+    filepath = get_function_path('simulink2xcos');
+    [path, fname, extension] = fileparts(filepath); //to load all functions, the directory has to be determined
+    filepath = path;
     getd(filepath);
     filepath1 = filepath + 'MISC\'; //the functions in MISC need to be loaded too
     getd(filepath1);
