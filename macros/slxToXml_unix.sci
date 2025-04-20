@@ -34,7 +34,7 @@ function [xmlDoc] = slxToXml_unix()
         else
             batch.tool = 1;
             batch.archivePath = '7z';
-            sevenzipCommand = '7z x ' + slxFile + ' -o' + slxFileDir;
+            sevenzipCommand = '7z x -aoa ' + slxFile + ' -o' + slxFileDir;
         end
 
     catch
@@ -46,7 +46,7 @@ function [xmlDoc] = slxToXml_unix()
         else
             batch.tool = 2;
             batch.archivePath = 'unzip';
-            unzipCommand = 'unzip ' + slxFile + ' -d ' + slxFileDir;
+            unzipCommand = 'unzip -o ' + slxFile + ' -d ' + slxFileDir;
         end
     end
 
