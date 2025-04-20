@@ -3,14 +3,14 @@
 
 // This file is released under the 3-clause BSD license. See COPYING-BSD.
 
-function toolbox_skeletonlib = startModule()
+function simulink2xcoslib = startModule()
 
     TOOLBOX_NAME  = "simulink2xcos";
     TOOLBOX_TITLE = "Simulink2Xcos";
 
   mprintf("Start " + TOOLBOX_TITLE + "\n");
 
-  if isdef("toolbox_skeletonlib") then
+  if isdef("simulink2xcoslib") then
     warning("Toolbox skeleton library is already loaded");
     return;
   end
@@ -23,7 +23,7 @@ function toolbox_skeletonlib = startModule()
 // =============================================================================
   mprintf("\tLoad macros\n");
   pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
-  toolbox_skeletonlib = lib(pathmacros);
+  simulink2xcoslib = lib(pathmacros);
 
 // Load and add help chapter
 // =============================================================================
@@ -39,17 +39,17 @@ function toolbox_skeletonlib = startModule()
 //// =============================================================================
 //  if or(getscilabmode() == ["NW";"STD"]) then
 //    mprintf("\tLoad demos\n");
-//    pathdemos = pathconvert(root_tlbx+"/demos/toolbox_skeleton.dem.gateway.sce", %F, %T);
+//    pathdemos = pathconvert(root_tlbx+"/demos/simulink2xcos.dem.gateway.sce", %F, %T);
 //    add_demo(TOOLBOX_TITLE, pathdemos);
 //  end
 //
 //// Load Preferences GUI
 //// =============================================================================
 //  if getscilabmode() == "STD" then
-//    addModulePreferences(TOOLBOX_TITLE, root_tlbx, etc_tlbx + "toolbox_skeleton_preferences.xml");
+//    addModulePreferences(TOOLBOX_TITLE, root_tlbx, etc_tlbx + "simulink2xcos_preferences.xml");
 //  end
 
 endfunction
 
-toolbox_skeletonlib = startModule();
+simulink2xcoslib = startModule();
 clear startModule; // remove startModule on stack
