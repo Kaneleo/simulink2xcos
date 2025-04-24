@@ -24,31 +24,27 @@ function [xmlDoc] = slxToXml_unix()
     //initializes the batch variable
     batch = struct();
     batch.tool = 0;
-    try
-        
-        status = unix("which 7z");
-        if status ~= 0 then
-            messagebox(["7z is not installed or not found in PATH.", "Please install 7z or add it to your PATH."], "Error", "error", "modal");
-            flag1 = 1;
-            // abort;
-        else
-            batch.tool = 1;
-            batch.archivePath = '7z';
-            sevenzipCommand = '7z x -aoa ' + slxFile + ' -o' + slxFileDir;
-        end
-
-    catch
+    
+    status = unix("which 7z");
+    if status ~= 0 then
         status = unix("which unzip");
         if status ~= 0 then
-            messagebox(["unzip is not installed or not found in PATH.", "Please install unzip or add it to your PATH."], "Error", "error", "modal");
+            messagebox(["unzip and 7z is not installed or not found in PATH.", "Please install unzip or add it to your PATH."], "Error", "error", "modal");
             flag1 = 1;
-            // abort;
+            abort;
         else
             batch.tool = 2;
             batch.archivePath = 'unzip';
             unzipCommand = 'unzip -o ' + slxFile + ' -d ' + slxFileDir;
         end
+    else
+        batch.tool = 1;
+        batch.archivePath = '7z';
+        sevenzipCommand = '7z x -aoa ' + slxFile + ' -o' + slxFileDir;
     end
+
+
+
 
     save(filepath + 'MISC/batch.sod', 'batch');
         
@@ -60,7 +56,7 @@ function [xmlDoc] = slxToXml_unix()
             if batch.tool == 1
                 unix(sevenzipCommand);
             elseif batch.tool == 2
-                unix(winrarCommand);
+                unix(unzipCommand);
             else
                 messagebox(['You do not have a supported archive tool installed.', 'Please unpack the slx file manually by following these steps:', '', '1. Duplicate the SLX file and change the file ending to zip.', '2. Extract the contents of the archive with an appropriate tool.', '3. Click OK when done.'], 'No supported archive tool available', 'warning', 'modal');
                 abort;
